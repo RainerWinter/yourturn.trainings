@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>12Leadership Trainings 2026 – WINTERFEST Leadership Academy</title>
+  <link rel="stylesheet" href="fonts/inter-fontface.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #1a2232;
+      --navy2:  #0f1824;
+      --orange: #f97316;
+      --white:  #ffffff;
+      --light:  #f4f6f9;
+      --text:   #2c3e50;
+      --muted:  #64748b;
+      --border: #e2e8f0;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); font-size: 16px; line-height: 1.6; }
+
+    /* HEADER */
+    header { background: var(--navy); padding: 0 48px; height: 76px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.25); }
+    .logo-wrap { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .logo-icon { width: auto; height: 56px; flex-shrink: 0; }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { color: rgba(255,255,255,0.65); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-decoration: none; text-transform: uppercase; transition: color .2s; }
+    nav a:hover { color: var(--white); }
+    nav a.cta-nav { background: var(--orange); color: var(--white); padding: 8px 18px; border-radius: 6px; }
+    nav a.cta-nav:hover { background: #ea6a0a; }
+
+    /* HERO */
+    .hero { background: var(--navy); color: var(--white); padding: 88px 24px 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, rgba(249,115,22,0.08) 0%, transparent 65%); pointer-events: none; }
+    .eyebrow { display: inline-block; background: var(--orange); color: var(--white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 7px 20px; border-radius: 100px; margin-bottom: 28px; }
+    .hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; line-height: 1.15; max-width: 760px; margin: 0 auto 24px; letter-spacing: -0.01em; }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero .lead { font-size: 1.1rem; line-height: 1.75; max-width: 580px; margin: 0 auto 40px; color: rgba(255,255,255,0.8); }
+    .pills { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); color: rgba(255,255,255,0.82); border-radius: 100px; padding: 7px 18px; font-size: 0.82rem; }
+
+    /* WAVE */
+    .wave { background: var(--navy); line-height: 0; }
+    .wave svg { display: block; width: 100%; }
+
+    /* TERMINE SECTION */
+    .termine { background: var(--light); padding: 64px 24px 72px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-title { font-size: 1.65rem; font-weight: 800; color: var(--navy); text-align: center; margin-bottom: 12px; letter-spacing: -0.01em; }
+    .section-sub { text-align: center; color: var(--muted); font-size: 0.95rem; margin-bottom: 44px; }
+
+    /* CARDS */
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .card { background: var(--white); border-radius: 12px; padding: 28px 24px; border-top: 3px solid var(--orange); box-shadow: 0 2px 12px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
+    .card-month { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 4px; }
+    .card-date { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
+    .card-topics { flex: 1; margin-bottom: 20px; }
+    .topic { margin-bottom: 14px; }
+    .topic h3 { font-size: 0.88rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px; }
+    .topic p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+    .topic-divider { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+    .card a.btn { display: block; text-align: center; background: var(--orange); color: var(--white); text-decoration: none; padding: 11px 20px; border-radius: 6px; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.03em; transition: background .2s; }
+    .card a.btn:hover { background: #ea6a0a; }
+
+    /* MUENCHEN BOX */
+    .muenchen-box { background: var(--white); border-radius: 12px; padding: 28px 24px; border-top: 3px solid var(--navy); box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: center; margin-top: 32px; }
+    .muenchen-box h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .muenchen-box p { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
+    .muenchen-box a.btn { display: inline-block; background: var(--navy); color: var(--white); text-decoration: none; padding: 11px 28px; border-radius: 6px; font-size: 0.88rem; font-weight: 700; transition: background .2s; }
+    .muenchen-box a.btn:hover { background: #2d3a52; }
+
+    /* TRUST BAR */
+    .trust { background: var(--navy2); color: var(--white); padding: 52px 24px; text-align: center; }
+    .trust .section-title { color: var(--white); margin-bottom: 8px; }
+    .trust .lead { font-size: 0.92rem; color: rgba(255,255,255,0.6); max-width: 500px; margin: 0 auto 36px; line-height: 1.7; }
+    .stats { display: flex; justify-content: center; flex-wrap: wrap; gap: 56px; }
+    .stat strong { display: block; font-size: 2.4rem; font-weight: 800; color: var(--orange); letter-spacing: -0.02em; }
+    .stat span { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* CTA BAND */
+    .cta-band { background: var(--orange); padding: 48px 24px; text-align: center; }
+    .cta-band h2 { font-size: 1.5rem; font-weight: 800; color: var(--white); margin-bottom: 10px; }
+    .cta-band p { color: rgba(255,255,255,0.85); font-size: 0.95rem; margin-bottom: 28px; }
+    .btn-white { display: inline-block; background: var(--white); color: var(--orange); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.04em; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: opacity .2s; }
+    .btn-white:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer { background: var(--navy2); color: rgba(255,255,255,0.35); font-size: 0.78rem; padding: 22px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+    footer a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--white); }
+    .footer-links { display: flex; gap: 20px; }
+
+    @media (max-width: 680px) {
+      header { padding: 0 20px; }
+      nav a:not(.cta-nav) { display: none; }
+      footer { flex-direction: column; text-align: center; padding: 20px; }
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="https://winterfest.academy" class="logo-wrap">
+    <img class="logo-icon" src="Winterfest-Leadership-Academy-2-g.png" alt="WINTERFEST Leadership Academy">
+  </a>
+  <nav>
+    <a href="https://winterfest.academy/programme">Programme</a>
+    <a href="https://winterfest.academy/events">Events</a>
+    <a href="https://winterfest.academy/kontakt" class="cta-nav">Kontakt</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">12Leadership – Jahresprogramm</div>
+  <h1>Trainings <em>2026</em></h1>
+  <p class="lead">12 Monate. 24 Themen. Ein Fundament für Führung, die wirklich bleibt. Jeden Monat ein Modul – praxisnah, direkt anwendbar, ohne Theorie-Overhead.</p>
+  <div class="pills">
+    <span class="pill">📍 Straubing – Regensburger Str. 79</span>
+    <span class="pill">🗓 Mittwochs 09:00 – 15:00 Uhr</span>
+    <span class="pill">📚 2 Module pro Trainingstag</span>
+    <span class="pill">⏱ 6 Stunden Training</span>
+  </div>
+</section>
+
+<div class="wave">
+  <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0 48 C360 0 1080 0 1440 48 L1440 0 L0 0 Z" fill="#1a2232"/>
+  </svg>
+</div>
+
+<!-- TERMINE -->
+<section class="termine">
+  <div class="section-inner">
+    <h2 class="section-title">Alle Termine 2026 – Straubing</h2>
+    <p class="section-sub">Alle Module finden statt: Regensburger Str. 79, 94315 Straubing</p>
+    <div class="cards">
+
+                <!-- JANUAR -->
+      <div class="card">
+        <div class="card-month">Januar 2026</div>
+        <div class="card-date">Mi, 18. Juni 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Mindset für Veränderung</h3>
+            <p>Warum uns Veränderungen so schwer fallen</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Feedbackgespräche führen</h3>
+            <p>Wie du Feedbacks so gibst, dass es ankommt und wirkt</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/10Juni202612LeadershipSTRAUBING#/" target="_blank">Jetzt anmelden</a>
+      </div>
+
+           <!-- FEBRUAR -->
+      <div class="card">
+        <div class="card-month">Februar 2026</div>
+        <div class="card-date">Do, 18. Juni 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Statuskompetenz</h3>
+            <p>Was Führung mit Status zu tun hat</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Alles eine Frage der Haltung</h3>
+            <p>Wie du deine Körpersprache bewusster einsetzt</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/10Juni202612LeadershipSTRAUBING#/" target="_blank">Jetzt anmelden</a>
+      </div>
+
+           <!-- MÄRZ -->
+      <div class="card">
+        <div class="card-month">März 2026</div>
+        <div class="card-date">Do, 18. Juni 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Statuskompetenz</h3>
+            <p>Was Führung mit Status zu tun hat</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Alles eine Frage der Haltung</h3>
+            <p>Wie du deine Körpersprache bewusster einsetzt</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/10Juni202612LeadershipSTRAUBING#/" target="_blank">Jetzt anmelden</a>
+      </div>
+
+           <!-- APRIL -->
+      <div class="card">
+        <div class="card-month">April 2026</div>
+        <div class="card-date">Do, 18. Juni 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Statuskompetenz</h3>
+            <p>Was Führung mit Status zu tun hat</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Alles eine Frage der Haltung</h3>
+            <p>Wie du deine Körpersprache bewusster einsetzt</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/10Juni202612LeadershipSTRAUBING#/" target="_blank">Jetzt anmelden</a>
+      </div>
+
+           <!-- MAI -->
+      <div class="card">
+        <div class="card-month">Mai 2026</div>
+        <div class="card-date">Do, 18. Juni 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Statuskompetenz</h3>
+            <p>Was Führung mit Status zu tun hat</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Alles eine Frage der Haltung</h3>
+            <p>Wie du deine Körpersprache bewusster einsetzt</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/10Juni202612LeadershipSTRAUBING#/" target="_blank">Jetzt anmelden</a>
+      </div>
+
+            <!-- JUNI -->
+      <div class="card">
+        <div class="card-month">Juni 2026</div>
+        <div class="card-date">Do, 18. Juni 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Statuskompetenz</h3>
+            <p>Was Führung mit Status zu tun hat</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Alles eine Frage der Haltung</h3>
+            <p>Wie du deine Körpersprache bewusster einsetzt</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/10Juni202612LeadershipSTRAUBING#/" target="_blank">Jetzt anmelden</a>
+      </div>
+
+      <!-- JULI -->
+      <div class="card">
+        <div class="card-month">Juli 2026</div>
+        <div class="card-date">Mi, 01. Juli 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Entscheidungsfindung</h3>
+            <p>Gute und durchdachte Entscheidungen treffen</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Verhandlungsführung</h3>
+            <p>Wie dir andere geben, was du willst</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/01Juli202612LeadershipSTRAUBING#/" target="_blank">Jetzt anmelden</a>
+      </div>
+
+      <!-- AUGUST -->
+      <div class="card">
+        <div class="card-month">August 2026</div>
+        <div class="card-date">Mi, 29. Juli 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Werteorientierte Führung</h3>
+            <p>Wie du ansprechende Unternehmenswerte definierst und lebst</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Teamresilienz</h3>
+            <p>Wie du ein wiederstandsfähiges Team formst</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/29Juli202612LeadershipSTRAUBING" target="_blank">Jetzt anmelden</a>
+      </div>
+
+      <!-- SEPTEMBER -->
+      <div class="card">
+        <div class="card-month">September 2026</div>
+        <div class="card-date">Mi, 16. September 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Leadership Mindset</h3>
+            <p>Welche Denkweisen dir helfen, ein erfolgreiches Mindset zu entwickeln</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Gesunde Führung</h3>
+            <p>Die verschiedenen Lebensbereiche in Einklang bringen</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/16September202612LeadershipSTRAUBING#/" target="_blank">Jetzt anmelden</a>
+      </div>
+
+      <!-- OKTOBER -->
+      <div class="card">
+        <div class="card-month">Oktober 2026</div>
+        <div class="card-date">Mi, 07. Oktober 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Strategisches Denken</h3>
+            <p>Wie du strategisches Denken stimulierst</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Strategisches Handeln</h3>
+            <p>Wie du Strategisches Denken in konkrete Führungsarbeit übersetzt</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/07Oktober202612LeadershipSTRAUBING#/" target="_blank">Jetzt anmelden</a>
+      </div>
+
+      <!-- NOVEMBER -->
+      <div class="card">
+        <div class="card-month">November 2026</div>
+        <div class="card-date">Mi, 04. November 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Mitarbeiterbindung</h3>
+            <p>Wie du Topmitarbeiter findst, entwickelst und bindest</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Warum die anderen so anders sind</h3>
+            <p>Vom Umgang mit ziel-, erlebnis-, beziehungs- und ergebnisorientierten Mitarbeitern</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/04November202612LeadershipSTRAUBING#/" target="_blank">Jetzt anmelden</a>
+      </div>
+
+      <!-- DEZEMBER -->
+      <div class="card">
+        <div class="card-month">Dezember 2026</div>
+        <div class="card-date">Mi, 02. Dezember 2026 · 09:00 – 15:00 Uhr</div>
+        <div class="card-topics">
+          <div class="topic">
+            <h3>Resilient in Führung</h3>
+            <p>Wie du Resilienz in deinen Führungsalltag integrierst</p>
+          </div>
+          <hr class="topic-divider">
+          <div class="topic">
+            <h3>Motivation</h3>
+            <p>Das Reiss Motivation Profile als Schlüssel zur Mitarbeitermotivation</p>
+          </div>
+        </div>
+        <a class="btn" href="https://rainerwinter.zohobackstage.eu/02Dezember202612LeadershipSTRAUBING#/" target="_blank">Jetzt anmelden</a>
+      </div>
+
+    </div>
+
+    <!-- MUENCHEN -->
+    <div class="muenchen-box">
+      <h3>📍 München-Termine</h3>
+      <p>Die 12Leadership-Module gibt es auch in München. Alle Termine und Anmeldung direkt über Odoo.</p>
+      <a class="btn" href="https://winterfest-muc-sta.odoo.com/event" target="_blank">Zu den München-Terminen →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust">
+  <h2 class="section-title">Über 10 Jahre. Mittelstand. Ein Team, eine Haltung.</h2>
+  <p class="lead">WINTERFEST begleitet Führungskräfte, die ihren Alltag nicht mehr nur verwalten wollen.</p>
+  <div class="stats">
+    <div class="stat"><strong>200+</strong><span>Führungskräfte begleitet</span></div>
+    <div class="stat"><strong>60+</strong><span>Unternehmen</span></div>
+    <div class="stat"><strong>10+</strong><span>Jahre Erfahrung</span></div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <h2>Noch Fragen zum Programm?</h2>
+  <p>20 Minuten Potenzialgespräch. Nur Klarheit – kein Verkaufsdruck.</p>
+  <a class="btn-white" href="https://zeeg.me/winterfest/Potenzialgespraech" target="_blank">Termin buchen →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 WINTERFEST Leadership Academy · office@winterfest.academy</span>
+  <div class="footer-links">
+    <a href="https://winterfest.academy/impressum">Impressum</a>
+    <a href="https://winterfest.academy/datenschutz">Datenschutz</a>
+    <a href="https://winterfest.academy/kontakt">Kontakt</a>
+  </div>
+</footer>
+
+</body>
+</html>
